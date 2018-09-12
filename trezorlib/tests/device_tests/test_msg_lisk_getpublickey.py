@@ -14,8 +14,6 @@
 # You should have received a copy of the License along with this library.
 # If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
 
-from binascii import hexlify
-
 import pytest
 
 from trezorlib import lisk
@@ -33,6 +31,6 @@ class TestMsgLiskGetPublicKey(TrezorTest):
         self.setup_mnemonic_nopin_nopassphrase()
         sig = lisk.get_public_key(self.client, LISK_PATH)
         assert (
-            hexlify(sig.public_key)
-            == b"eb56d7bbb5e8ea9269405f7a8527fe126023d1db2c973cfac6f760b60ae27294"
+            sig.public_key.hex()
+            == "eb56d7bbb5e8ea9269405f7a8527fe126023d1db2c973cfac6f760b60ae27294"
         )
