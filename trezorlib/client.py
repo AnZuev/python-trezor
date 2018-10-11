@@ -39,6 +39,7 @@ from . import (
     nem,
     stellar,
     tools,
+    apla
 )
 
 if sys.version_info.major < 3:
@@ -565,6 +566,11 @@ class ProtocolMixin(object):
     get_ecdh_session_key = MovedTo(misc.get_ecdh_session_key)
     encrypt_keyvalue = MovedTo(misc.encrypt_keyvalue)
     decrypt_keyvalue = MovedTo(misc.decrypt_keyvalue)
+
+    # Apla functionality
+    apla_get_wallet = MovedTo(apla.get_wallet)
+    apla_get_public_key = MovedTo(apla.get_public_key)
+    apla_sign_message = MovedTo(apla.sign_message)
 
 
 class TrezorClient(ProtocolMixin, TextUIMixin, BaseClient):
